@@ -54,4 +54,4 @@ Confirm redis setup using OpenShift status command
 Add phantomjs cartridge for headless testing
 >>> rhc cartridge add https://raw.github.com/tresbailey/phantomjs-cartridge/master/metadata/manifest.yml -a todo
 
-
+End of this demo.
