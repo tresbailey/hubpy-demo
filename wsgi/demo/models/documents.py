@@ -28,7 +28,6 @@ class Todo(db.Document):
                 continue
         return response
 
-    mongo_id = db.ObjectIdField()
     title = db.StringField()
     completed = db.BoolField()
     order = db.AnythingField()
