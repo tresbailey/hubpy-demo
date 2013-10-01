@@ -7,7 +7,7 @@ import pickle
 import sys
 from datetime import datetime
 from functools import partial
-from flask import Module, render_template, request, jsonify, \
+from flask import Blueprint, render_template, request, jsonify, \
     url_for, session, redirect, abort
 from pymongo import Connection
 from pymongo.objectid import ObjectId
@@ -15,7 +15,8 @@ from demo.models.documents import Todo
 from demo import db, redis_cli
 import json
 
-api = Module(__name__)
+api = Blueprint('api', __name__, 
+        template_folder='demo/templates', static_folder='static')
 
 
 def remove_OIDs(obj, recursive=False):
