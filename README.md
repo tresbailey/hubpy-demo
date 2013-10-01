@@ -55,3 +55,20 @@ Add phantomjs cartridge for headless testing
 >>> rhc cartridge add https://raw.github.com/tresbailey/phantomjs-cartridge/master/metadata/manifest.yml -a todo
 
 End of this demo.
+
+Update to the Redis branch
+
+Delete items from the todo list
+>>> curl -X DELETE http://todoapp-tresbailey.rhcloud.com/todos
+
+Get the password from the cartridge for redis
+>>> rhc cartridge-status redis -a todoapp
+
+Turn on Port-Forwarding for redis cartridge to be hit from localhost
+>>> rhc port-forward todoapp
+
+Check the members of the deleted set inside of the openshift redis
+>>> redis-cli -p 35546 -a ZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5
+>>> >>> SMEMBERS deleted
+
+End of second demo
