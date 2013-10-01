@@ -1,8 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 import os
-virtenv = os.environ['OPENSHIFT_HOMEDIR'] + '/python-2.7/virtenv'
-os.environ['PYTHON_EGG_CACHE'] = '/tmp'
-os.environ['PATH'] = os.environ['PATH'] +','+ os.environ['OPENSHIFT_REPO_DIR'] +'/wsgi'
+
+virtenv = os.environ['OPENSHIFT_PYTHON_DIR'] + '/virtenv/'
+>>>>>>> 84f4642dba2f9e4329457f8543cb97d36545b448
 virtualenv = os.path.join(virtenv, 'bin/activate_this.py')
 try:
     execfile(virtualenv, dict(__file__=virtualenv))

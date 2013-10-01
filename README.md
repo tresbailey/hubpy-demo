@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 hubpy-demo
 ==========
 
@@ -72,3 +73,8 @@ Check the members of the deleted set inside of the openshift redis
 >>> >>> SMEMBERS deleted
 
 End of second demo
+=======
+The OpenShift `python` cartridge documentation can be found at:
+
+https://github.com/openshift/origin-server/tree/master/cartridges/openshift-origin-cartridge-python/README.md
+>>>>>>> 84f4642dba2f9e4329457f8543cb97d36545b448
