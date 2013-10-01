@@ -85,3 +85,17 @@ def return_page():
     driver.get('http://todoapp-tresbailey.rhcloud.com/static/index.html')
     driver.save_screenshot('goog.png')
     return send_file('goog.png', mimetype='image/png')
+
+
+def delete_and_cache(todo):
+    redis_cli.sadd('deleted', json.dumps(todo, default=remove_OIDs))
+    todo.remove()
+
+@api.route('/todos', methods=['DELETE'])
+def delete_all():
+    [delete_and_cache(todo) for todo in Todo.query.all()]
+    return make_response('', 204)
+
+@api.route('/todos/deleted', methods=['GET'])
+def get_deleted():
+    return redis_cli.smembers('deleted')
