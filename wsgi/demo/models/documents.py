@@ -31,4 +31,4 @@ class Todo(db.Document):
     mongo_id = db.ObjectIdField()
     title = db.StringField()
     completed = db.BoolField()
-    order: db.AnythingField()
+    order = db.AnythingField()
