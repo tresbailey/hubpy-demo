@@ -3,20 +3,25 @@
 @author: tres
 '''
 from sets import Set
+import os
 import pickle
 import sys
 from datetime import datetime
 from functools import partial
 from flask import Blueprint, render_template, request, jsonify, \
-    url_for, session, redirect, abort
+    url_for, session, redirect, abort, send_file
 from pymongo import Connection
 from pymongo.objectid import ObjectId
+from selenium import webdriver
 from demo.models.documents import Todo
 from demo import db, redis_cli
 import json
 
 api = Blueprint('api', __name__, 
         template_folder='demo/templates', static_folder='static')
+
+
+PHANTOM_HOME = os.getenv('OPENSHIFT_PHANTOM_DIR', '/home/tres/phantom/phantomjs-1.9.1-linux-x86_64/')
 
 
 def remove_OIDs(obj, recursive=False):
@@ -74,3 +79,9 @@ def update_todo(todo_id):
     todo.save()
     return json.dumps( todo, default=remove_OIDs)
 
+@api.route('/todos/google', methods=['GET'])
+def return_page():
+    driver = webdriver.PhantomJS( PHANTOM_HOME + "bin/phantomjs")
+    driver.get('http://www.google.com')
+    driver.save_screenshot('goog.png')
+    return send_file('goog.png', mimetype='image/png')

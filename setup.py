@@ -11,5 +11,6 @@ setup(name='Todo Demo',
         'pymongo==2.1.1', 'python-dateutil==1.5',
         'redis==2.4.11', 'simplejson==2.1.6', 
         'wsgiref==0.1.2',
-        'Flask-MongoAlchemy==0.5.3', 'flask_oauth==0.12']
+        'Flask-MongoAlchemy==0.5.3', 'flask_oauth==0.12',
+        'selenium==2.33.0']
      )

@@ -3,7 +3,10 @@ hubpy-demo
 
 Demo for the use of python flask targeted for RedHat's OpenShift PaaS platform.
 
-Setup your user in OpenShift using rhc CLI
+If you do not have the rhc client tools installed, use ruby gem installer
+>>> sudo gem install rhc
+
+Setup your user in OpenShift using rhc CLI
 >>> rhc setup -l tres.bailey@partner.bmwgroup.com
 
 Create the python app
@@ -29,6 +32,9 @@ Commit and push your changes to the existing repo
 
 Push those changes to the openshift repo, which will kickoff a build to openshift
 >>> git push openshift master
+
+Navigate to the site page and confirm it runs
+>>> http://todoapp-tresbailey.rhcloud.com/static/index.html
 
 Check out your instance via ssh
 >>> ssh 524a382e4382ec00dd00004c@todo-tresbailey.rhcloud.com
