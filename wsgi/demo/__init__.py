@@ -44,7 +44,7 @@ app.secret_key = str(uuid.uuid4())
 DEBUG = True
 
 # Again, the redis cartridge requires these environment variables
-redis_cli = redis.Redis(host=os.environ.get('OPENSHIFT_REDIS_DB_HOST', 'localhost'), 
+redis_cli = redis.Redis(host=os.environ.get('OPENSHIFT_REDIS_HOST', 'localhost'), 
         port=int(os.environ.get('OPENSHIFT_REDIS_PORT', '6379')),
         password=os.environ.get('REDIS_PASSWORD', None))
 
