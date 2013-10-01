@@ -81,7 +81,7 @@ def update_todo(todo_id):
 
 @api.route('/todos/google', methods=['GET'])
 def return_page():
-    driver = webdriver.PhantomJS( PHANTOM_HOME + "bin/phantomjs")
+    driver = webdriver.PhantomJS( PHANTOM_HOME + "bin/phantomjs", service_log_path='/tmp/ghostdriver.log')
     driver.get('http://www.google.com')
     driver.save_screenshot('goog.png')
     return send_file('goog.png', mimetype='image/png')
