@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(name='Todo Demo',
       version='1.0',
-      description='OpenShift App',
+      description='HubPy App',
       author='Tres\' Bailey',
       author_email='tres.bailey@gmail.com',
       url='http://www.python.org/sigs/distutils-sig/',
