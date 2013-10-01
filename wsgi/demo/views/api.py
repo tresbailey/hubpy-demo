@@ -98,4 +98,4 @@ def delete_all():
 
 @api.route('/todos/deleted', methods=['GET'])
 def get_deleted():
-    return redis_cli.smembers('deleted')
+    return json.dumps(redis_cli.smembers('deleted'), default=remove_OIDs)
